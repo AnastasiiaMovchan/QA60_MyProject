@@ -14,47 +14,56 @@ public class JavaScriptAlertsTests {
 
 
     @BeforeMethod
-    public void setUp(){
+    public void setUp() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://the-internet.herokuapp.com/javascript_alerts");
 
         alertsPage = new JavaScriptAlertsPage(driver);
     }
+
     @Test
-    public void testJSAlerts(){
+    public void testJSAlerts() {
         alertsPage.triggerJSAlert();
+        Assert.assertEquals(alertsPage.getResultText(), "You successfully clicked an alert");
 
 
     }
 
     @Test
-    public  void testJSConfirmAlert(){
+    public void testJSConfirmAlert() {
         alertsPage.triggerJSConfirm(true);
+        Assert.assertEquals(alertsPage.getResultText(), "You clicked: Ok");
 
 
     }
+
     @Test
-    public void testJSConfirmDismiss(){
+    public void testJSConfirmDismiss() {
         alertsPage.triggerJSConfirm(false);
+        Assert.assertEquals(alertsPage.getResultText(), "You clicked: Cancel");
 
     }
+
     @Test
-    public void testJSPromptAccept(){
+    public void testJSPromptAccept() {
         String input = "Hello!";
-        alertsPage.triggerJSPrompt(input,true);
+        alertsPage.triggerJSPrompt(input, true);
+        Assert.assertEquals(alertsPage.getResultText(), "You entered: " + input);
 
 
     }
 
     @Test
-    public void testJSPromptDismiss(){
-        alertsPage.triggerJSPrompt("Ignored",false);
+    public void testJSPromptDismiss() {
+        alertsPage.triggerJSPrompt("Ignored", false);
+        Assert.assertEquals(alertsPage.getResultText(), "You entered: null");
 
     }
+
     @AfterMethod
-    public void tearDown(){
-        if(driver!=null){
+    public void tearDown() {
+        if (driver != null) {
             driver.quit();
         }
     }

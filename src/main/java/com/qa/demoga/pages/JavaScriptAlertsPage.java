@@ -10,7 +10,7 @@ public class JavaScriptAlertsPage extends BasePage{
     public JavaScriptAlertsPage(WebDriver driver){
         super(driver);
     }
-    @FindBy (xpath = "// button[text()='Click  for JS Alert']")
+    @FindBy (xpath = "//button[text()='Click for JS Alert']")
     private WebElement jsAlertButton;
 
     @FindBy(xpath = "//button[text()='Click for JS Confirm']")

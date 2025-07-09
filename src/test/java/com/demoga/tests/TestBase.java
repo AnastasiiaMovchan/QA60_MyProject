@@ -12,7 +12,7 @@ public class TestBase {
     WebDriver driver;
 
     @BeforeMethod
-    public void init() {
+    public void setUp() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://the-internet.herokuapp.com");
