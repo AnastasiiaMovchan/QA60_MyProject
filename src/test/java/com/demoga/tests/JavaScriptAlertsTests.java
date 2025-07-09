@@ -24,6 +24,7 @@ public class JavaScriptAlertsTests {
     @Test
     public void testJSAlerts(){
         alertsPage.triggerJSAlert();
+        Assert.assertEquals(alertsPage.getResultText(),"you successfully clicked an alert");
 
 
     }
@@ -31,18 +32,21 @@ public class JavaScriptAlertsTests {
     @Test
     public  void testJSConfirmAlert(){
         alertsPage.triggerJSConfirm(true);
+        Assert.assertEquals(alertsPage.getResultText(),"you clicked: Ok");
 
 
     }
     @Test
     public void testJSConfirmDismiss(){
         alertsPage.triggerJSConfirm(false);
+        Assert.assertEquals(alertsPage.getResultText(),"you clicked: Cancel");
 
     }
     @Test
     public void testJSPromptAccept(){
         String input = "Hello!";
         alertsPage.triggerJSPrompt(input,true);
+        Assert.assertEquals(alertsPage.getResultText(),"you entered:"+input);
 
 
     }
@@ -50,6 +54,7 @@ public class JavaScriptAlertsTests {
     @Test
     public void testJSPromptDismiss(){
         alertsPage.triggerJSPrompt("Ignored",false);
+        Assert.assertEquals(alertsPage.getResultText(),"you entered:null");
 
     }
     @AfterMethod
