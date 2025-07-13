@@ -50,6 +50,7 @@ public class JavaScriptAlertsPage extends BasePage{
 
 
     public String getResultText(){
+
         return resultText.getText();
     }
 }

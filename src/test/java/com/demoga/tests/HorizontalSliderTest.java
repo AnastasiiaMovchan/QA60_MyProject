@@ -1,13 +1,10 @@
 package com.demoga.tests;
 
-import com.demoga.tests.TestBase;
 import com.qa.demoga.pages.HorizontalSliderPage;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.TestNG;
 import org.testng.annotations.Test;
 
-public class HorizontalSliderTest extends TestBase {
+public class HorizontalSliderTest extends BaseTest {
 
     @Test
     public void testSliderMovement() {
